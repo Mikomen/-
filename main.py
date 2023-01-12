@@ -35,7 +35,7 @@ def get_data(url):
 
         soup = BeautifulSoup(src, "html")
         li_posts = soup.find_all("li", class_="block-infinite__item")
-        # print(li_posts)
+        
         post_url = []
         for item in li_posts:
             posts_url = item.find("article", class_="block-infinite__item-content").find("a").get("href")
@@ -57,12 +57,12 @@ def get_data(url):
 
             try:
                 post_logo = posts_logo.find("a", class_="header__logo").find("img").get("src")
-                # print(post_logo)
+                
             except:
                 posts_logo = "No logo"
             try:
                 post_title = post_data.find("h1").text
-                # print(post_title)
+                
             except:
                 post_title = "No post Title"
             try:
@@ -70,7 +70,7 @@ def get_data(url):
                 post_desc = soup.find_all("p", class_="align-left")
                 for p in post_desc:
                     post_description += p.text
-                # print(post_description)
+                
             except:
                 post_desc = "No Description"
 
